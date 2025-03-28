@@ -1,0 +1,8 @@
+{% extends 'feed/main.html' %}
+{% block content %}
+<div class="container text-center" style="margin-top: 60px;">
+    <h2>Payment Canceled</h2>
+    <p>Your payment was not completed. If you wish to try again, please go back to the donation page.</p>
+    <a href="{% url 'feed' %}" class="btn btn-primary">Back to Donations</a>
+</div>
+{% endblock %}

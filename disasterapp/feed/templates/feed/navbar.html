@@ -1,0 +1,17 @@
+
+<nav>
+    <ul class="nav masthead-nav">
+        <li class="{% if request.path == '/' %}active{% endif %}">
+            <a href="/">Home</a>
+        </li>
+        <li class="{% if '/feed' in request.path %}active{% endif %}">
+            <a href="/feed">Feed</a>
+        </li>
+        <li class="{% if '/contact' in request.path %}active{% endif %}">
+            <a href="/contact">Contact</a>
+        </li>
+        <li class="{% if '/donation' in request.path %}active{% endif %}">
+            <a href="/donation">Donation</a>
+        </li>
+    </ul>
+</nav>

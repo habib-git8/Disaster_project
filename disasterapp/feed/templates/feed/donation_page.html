@@ -1,0 +1,46 @@
+{% extends 'feed/main.html' %}
+{% load static %}
+{% block content %}
+<!-- 
+<div class="container" style="margin-top:60px;">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <h2>Donate to: {{ post.title }}</h2>
+            <p><strong>Donation Required:</strong> ${{ post.donation_required }}</p>
+            <p><strong>Donation Received:</strong> ${{ post.donation_received }}</p>
+            <p><strong>Remaining Donation Needed:</strong> ${{ post.remaining_donation }}</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary">Donate</button>
+            </form>
+
+            <a href="{% url 'feed' %}" class="btn btn-secondary mt-2">Back to Feed</a>
+        </div>
+    </div>
+</div> -->
+<h2>Donate to: {{ post.title }}</h2>
+<form class="fs-form" target="_top" method="POST" action="{% url 'paypalpayment' post.id %}" >
+    
+    
+    <div class="fs-field">
+        <p><strong>Donation Required:</strong> ${{ post.donation_required }}</p>
+            <p><strong>Donation Received:</strong> ${{ post.donation_received }}</p>
+            <p><strong>Remaining Donation Needed:</strong> ${{ post.remaining_donation }}</p>
+    </div>
+    <div class="fs-field">
+        {% csrf_token %}
+    <!-- {{ form.as_p }} -->
+        <label class="fs-label" for="amount" style="color: aliceblue;">Donation Amount</label>
+        <input class="fs-input" id="amount" name="amount" placeholder="Enter the amount you wish to donate" required />
+    </div>
+    <div class="fs-button-group">
+        <button class="fs-button" type="submit">Submit</button>
+    </div>
+    <a href="{% url 'feed' %}" class="btn btn-secondary mt-2">Back to Feed</a>
+</form>
+
+
+
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends 'feed/main.html' %}
+
+{% block content %}
+<div>
+    <form method="POST" enctype="multipart/form-data" id="disasterForm" style="margin-top: 70px;">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            <label for="inputTitle">Disaster Title</label>
+            {{ form.title }}
+            <small class="text-danger">{{ form.title.errors }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDescription">Description</label>
+            {{ form.description }}
+            <small class="text-danger">{{ form.description.errors }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="inputLocation">Location</label>
+            {{ form.location }}
+            <small class="text-danger">{{ form.location.errors }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="inputDonation">Donation Required</label>
+            {{ form.donation_required }}
+            <small class="text-danger">{{ form.donation_required.errors }}</small>
+        </div>
+        <div class="form-group">
+            <label for="inputEmail">PayPal Email (For Receiving Donations)</label>
+            {{ form.user_email }}
+            <small class="text-danger">{{ form.user_email.errors }}</small>
+        </div>
+
+        <div class="form-group">
+            <label for="inputImage">Upload Image</label>
+            {{ form.image }}
+            <small class="text-danger">{{ form.image.errors }}</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit Report</button>
+    </form>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.getElementById("disasterForm").addEventListener("submit", function(event) {
+        let isValid = true;
+
+        let title = document.getElementById("id_title").value.trim();
+        let description = document.getElementById("id_description").value.trim();
+        let location = document.getElementById("id_location").value.trim();
+        let donation = document.getElementById("id_donation_required").value.trim();
+        let image = document.getElementById("id_image").value;
+        let email = document.getElementById("id_user_email").value.trim();
+
+        // Title validation
+        if (title === "") {
+            alert("Disaster title cannot be empty.");
+            isValid = false;
+        }
+
+        // Description validation
+        if (description.length < 10) {
+            alert("Description must be at least 10 characters.");
+            isValid = false;
+        }
+
+        // Location validation
+        if (location === "") {
+            alert("Please enter a valid location.");
+            isValid = false;
+        }
+
+        // Donation validation
+        if (donation === "") {
+            alert("Please specify the donation requirements.");
+            isValid = false;
+        }
+
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (email === "" || !emailPattern.test(email)) {
+            alert("Please enter a valid PayPal email.");
+            isValid = false;
+        }
+
+        // Image validation
+        if (image === "") {
+            alert("Please upload an image.");
+            isValid = false;
+        }
+
+
+        if (!isValid) {
+            event.preventDefault();
+        }
+    });
+});
+</script>
+
+{% endblock %}

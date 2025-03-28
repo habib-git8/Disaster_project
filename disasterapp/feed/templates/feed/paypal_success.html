@@ -1,0 +1,9 @@
+{% extends 'feed/main.html' %}
+{% block content %}
+<div class="container">
+    <h2>Donation Successful</h2>
+    <p>Thank you for your donation of ${{ donation.amount }}!</p>
+    <a href="{% url 'download_receipt' donation.id %}" class="btn btn-primary">Download Receipt</a>
+    <a href="{% url 'donation' %}" class="btn btn-primary" style="margin-left: 10px;">Return Home</a>
+</div>
+{% endblock %}
