@@ -26,7 +26,10 @@ SECRET_KEY = 'django-insecure-z59pa5i1fls*agca__kkgf_k7o!w*i&lni=257b59t1p1udw$4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['demoenv.eba-2eyxpeas.us-east-1.elasticbeanstalk.com',
+    '127.0.0.1',
+    'localhost',
+    '172.31.34.220',]
 
 
 # Application definition
@@ -160,4 +163,5 @@ AWS_DYNAMODB_TABLES = {
 }
 AWS_SNS_TOPIC_ARN = "arn:aws:sns:us-east-1:592027060252:DisasterAlerts"
 # AWS_STORAGE_BUCKET_NAME = "disasterconnect-images"
+
 
