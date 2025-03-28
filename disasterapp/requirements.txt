@@ -17,7 +17,7 @@ django-dynamodb-sessions==0.6
 django-environ==0.11.2
 django-sns-mobile-push-notification==0.9
 django-storages==1.14.5
-filelock==3.18.0
+filelock==3.16.1
 gunicorn==23.0.0
 idna==3.10
 jmespath==1.0.1
