@@ -136,6 +136,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 # IMAGE_UPLOAD_PATH = os.path.join(BASE_DIR, 'static', 'images')
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 # PayPal Configuration
 PAYPAL_MODE = 'sandbox'  # Change to 'live' for production
 PAYPAL_CLIENT_ID = 'AST-B84zzNsWmz1_ddX3ax8KphTDEvYu8Oj0xIaYdp9VgSgeEGZMFNmKhULWU5BfbdEL1yzvh93CK4jw'
